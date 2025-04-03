@@ -1,0 +1,33 @@
+/* Grid pattern background for fallback */
+.bg-grid-pattern {
+  background-image: url('/images/grid-pattern.png');
+  background-size: 100px 100px;
+  background-repeat: repeat;
+}
+
+/* Fallback gradient if grid pattern is not available */
+.bg-cyberpunk-gradient {
+  background: linear-gradient(135deg, #0a0a2e 0%, #1a1a4a 50%, #0a0a2e 100%);
+}
+
+/* Overlay for better text readability */
+.overlay-gradient {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+}
+
+/* Animated background pulse */
+@keyframes backgroundPulse {
+  0% {
+    background-color: rgba(0, 150, 255, 0.05);
+  }
+  50% {
+    background-color: rgba(0, 150, 255, 0.1);
+  }
+  100% {
+    background-color: rgba(0, 150, 255, 0.05);
+  }
+}
+
+.animate-bg-pulse {
+  animation: backgroundPulse 4s infinite;
+}

@@ -1,0 +1,142 @@
+/* Glowing container styles for the episode section */
+
+.glowing-container {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.glowing-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(150, 255, 0, 0.15), transparent, rgba(150, 255, 0, 0.15));
+  border-radius: 6px;
+  z-index: -1;
+  animation: glowPulse 3s infinite alternate;
+}
+
+.glowing-cube-container {
+  position: relative;
+  z-index: 1;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.glowing-cube-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, 
+    rgba(150, 255, 0, 0.15), 
+    transparent, 
+    rgba(150, 255, 0, 0.15),
+    transparent,
+    rgba(150, 255, 0, 0.15)
+  );
+  border-radius: 6px;
+  z-index: -1;
+  filter: blur(5px);
+  opacity: 0.7;
+  animation: rotateCube 8s linear infinite;
+  transform: translateZ(-10px);
+}
+
+.glowing-cube-container::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, 
+    transparent, 
+    rgba(150, 255, 0, 0.08), 
+    transparent, 
+    rgba(150, 255, 0, 0.08), 
+    transparent
+  );
+  border-radius: 6px;
+  z-index: -1;
+  animation: rotateCube 12s linear infinite reverse;
+  transform: translateZ(-5px);
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.3;
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 0.7;
+    filter: blur(5px);
+  }
+}
+
+@keyframes rotateCube {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Episode navigator styles */
+.episode-navigator {
+  position: relative;
+  z-index: 1;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.episode-navigator::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(150, 255, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(150, 255, 0, 0.08) 0%, transparent 50%);
+  filter: blur(10px);
+  z-index: -1;
+  transform: translateZ(-20px);
+}
+
+/* Galaxy background effect */
+.galaxy-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 40px 60px, rgba(150, 255, 0, 0.5), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 20px 50px, rgba(150, 255, 0, 0.4), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 30px 100px, rgba(150, 255, 0, 0.3), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 60px, rgba(150, 255, 0, 0.2), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 110px 90px, rgba(150, 255, 0, 0.4), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 190px 150px, rgba(150, 255, 0, 0.3), rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.15;
+  z-index: -2;
+  animation: movingStars 60s linear infinite;
+}
+
+@keyframes movingStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 200px;
+  }
+}

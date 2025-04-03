@@ -1,0 +1,13 @@
+# Ignore large files
+.git
+node_modules
+.next
+out
+.vscode
+.idea
+.DS_Store
+
+# Ignore large video files
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.webm

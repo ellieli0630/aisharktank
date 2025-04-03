@@ -1,0 +1,51 @@
+/* Text reveal animation styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+
+.text-reveal {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+  text-shadow: 0 0 10px rgba(0, 255, 100, 0.3);
+}
+
+.text-reveal-highlight {
+  color: #00ff64;
+  position: relative;
+}
+
+.text-reveal-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #00ff64;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.text-reveal-highlight.active::after {
+  transform: scaleX(1);
+}
+
+/* Glowing effect */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 100, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 100, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 255, 100, 0.3);
+  }
+}
+
+.text-glow {
+  animation: glow 2s infinite;
+}
